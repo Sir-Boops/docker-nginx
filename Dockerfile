@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-ENV NGINX_VER="1.13.10"
+ENV NGINX_VER="1.13.11"
 
 RUN addgroup nginx && \
 	adduser -H -D -G nginx nginx && \
@@ -8,7 +8,7 @@ RUN addgroup nginx && \
 
 RUN apk add -U --virtual deps \
 		gcc g++ make pcre-dev zlib-dev \
-		openssl-dev && \
+		libressl-dev && \
 	cd ~ && \
 	wget http://nginx.org/download/nginx-$NGINX_VER.tar.gz && \
 	wget https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/v0.6.4.tar.gz && \
