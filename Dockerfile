@@ -12,11 +12,14 @@ RUN apk add -U --virtual deps \
 	cd ~ && \
 	wget http://nginx.org/download/nginx-$NGINX_VER.tar.gz && \
 	wget https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/v0.6.4.tar.gz && \
+    wget https://github.com/AirisX/nginx_cookie_flag_module/archive/v1.1.0.tar.gz && \
 	tar xf v0.6.4.tar.gz && \
+    tar xf v1.1.0.tar.gz && \
 	tar xf nginx-$NGINX_VER.tar.gz && \
 	cd ~/nginx-$NGINX_VER/ && \
 	./configure --prefix=/opt/nginx \
 		--add-module=../ngx_http_substitutions_filter_module-0.6.4 \
+        --add-module=../nginx_cookie_flag_module-1.1.0 \
 		--with-threads --with-http_ssl_module --with-http_v2_module \
 		--with-http_gunzip_module && \
 	make -j$(nproc) && \
