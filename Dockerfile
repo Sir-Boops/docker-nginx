@@ -26,4 +26,7 @@ RUN apk add -U --virtual deps \
 	make install && \
 	rm -rf ~/* && \
 	apk del --purge deps && \
-	apk add pcre libssl1.0
+	apk add pcre libssl1.0 && \
+    chown nginx:nginx -R /opt
+
+CMD /opt/nginx/sbin/nginx -g 'daemon off; user nginx;'
