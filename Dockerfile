@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-ENV NGINX_VER="1.13.11"
+ENV NGINX_VER="1.14.0"
 
 RUN addgroup nginx && \
 	adduser -H -D -G nginx nginx && \
