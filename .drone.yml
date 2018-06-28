@@ -1,0 +1,6 @@
+pipeline:
+    docker:
+        image: plugins/docker
+        dockerfile: Dockerfile
+        repo: sirboops/nginx
+        secrets: [ docker_username, docker_password ]
