@@ -14,7 +14,8 @@ RUN apk add -U --virtual deps \
     tar xf nginx-$NGINX_VER.tar.gz && \
     cd ~/nginx-$NGINX_VER/ && \
     ./configure --prefix=/opt/nginx \
-        --with-threads --with-http_ssl_module
+        --with-threads \
+        --with-http_ssl_module \
         --with-http_v2_module \
         --with-http_gunzip_module && \
     make -j$(nproc) && \
