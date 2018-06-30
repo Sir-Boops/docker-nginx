@@ -1,8 +1,6 @@
 FROM alpine:3.7
 
 ENV NGINX_VER="1.15.0"
-ENV SUB_VER="0.6.4"
-ENV COOKIE_VER="1.1.0"
 
 RUN addgroup nginx && \
     adduser -H -D -G nginx nginx && \
@@ -13,16 +11,11 @@ RUN apk add -U --virtual deps \
         libressl-dev && \
     cd ~ && \
     wget http://nginx.org/download/nginx-$NGINX_VER.tar.gz && \
-    wget https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/v$SUB_VER.tar.gz && \
-    wget https://github.com/AirisX/nginx_cookie_flag_module/archive/v$COOKIE_VER.tar.gz && \
-    tar xf v$SUB_VER.tar.gz && \
-    tar xf v$COOKIE_VER.tar.gz && \
     tar xf nginx-$NGINX_VER.tar.gz && \
     cd ~/nginx-$NGINX_VER/ && \
     ./configure --prefix=/opt/nginx \
-        --add-module=../ngx_http_substitutions_filter_module-$SUB_VER \
-        --add-module=../nginx_cookie_flag_module-$COOKIE_VER \
-        --with-threads --with-http_ssl_module --with-http_v2_module \
+        --with-threads --with-http_ssl_module
+        --with-http_v2_module \
         --with-http_gunzip_module && \
     make -j$(nproc) && \
     make install && \
