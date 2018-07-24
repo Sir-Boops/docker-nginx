@@ -1,4 +1,4 @@
-TAGS="1.15.1 latest"
+TAGS="1.15.2 latest"
 DOCKER_REPO="sirboops/nginx"
 
 BUILD_TAGS=""
