@@ -33,7 +33,7 @@ RUN apk add -U --virtual deps \
     --add-module=../ngx_http_substitutions_filter_module-$SUB_VER \
     --add-module=../nginx_cookie_flag_module-$COOKIE_VER \
 		--add-module=../headers-more-nginx-module-$HEADERS_VER \
-    --with-openssl=../openssl-$SSL_VER \
+    --with-openssl=../openssl-$SSL_VER --with-openssl-opt=enable-tls1_3 \
     --with-threads --with-http_ssl_module --with-http_v2_module \
     --with-http_gunzip_module && \
   make -j$(nproc) && \
