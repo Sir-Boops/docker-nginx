@@ -1,7 +1,7 @@
 FROM alpine:3.8
 
 # NGINX and OpenSSL versions
-ENV NGINX_VER="1.15.5"
+ENV NGINX_VER="1.15.6"
 ENV SSL_VER="OpenSSL_1_1_1"
 
 # NGINX module versions
